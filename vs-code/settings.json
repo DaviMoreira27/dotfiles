@@ -1,0 +1,49 @@
+{
+
+    "workbench.iconTheme": "vscode-icons",
+
+    "files.autoSave": "afterDelay",
+
+    "editor.mouseWheelZoom": true,
+
+    "workbench.colorTheme": "Catppuccin Mocha",
+
+    "[json]": {
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+    },
+
+    "[typescriptreact]": {
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+    },
+
+    "[typescript]": {
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+    },
+
+    "database-client.autoSync": true,
+
+    "terminal.external.linuxExec": "kitty",
+
+    "terminal.integrated.defaultProfile.linux": "fish",
+
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "haskell.manageHLS": "GHCup",
+
+    "redhat.telemetry.enabled": false,
+
+    "vsicons.dontShowNewVersionMessage": true,
+
+    "makefile.configureOnOpen": false,
+
+    "C_Cpp.codeFolding": "disabled",
+
+    "githubPullRequests.pullBranch": "never"
+
+}
