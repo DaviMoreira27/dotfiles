@@ -7,22 +7,25 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": false,
+  "formatter": "prettier",
   "ssh_connections": [
     {
       "host": "github.com",
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
+  "title_bar": {
+    "show_branch_icon": true,
+  },
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle",
     "copilot": {
       "proxy": null,
-      "proxy_no_verify": null
+      "proxy_no_verify": null,
     },
-    "enabled_in_text_threads": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
+    "enabled_in_text_threads": false,
   },
   "icon_theme": "Catppuccin Latte",
   "ui_font_size": 16,
@@ -32,122 +35,157 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "autosave": "on_focus_change",
-  "format_on_save": "prettier",
+  "format_on_save": "off",
   "enable_language_server": true,
   "completions": {
-    "enabled": false
+    "enabled": false,
   },
   "soft_wrap": "editor_width",
   "inlay_hints": {
     "enabled": true,
-    "trigger_chars": ["."]
+    "trigger_chars": ["."],
   },
   "show_edit_predictions": false,
   "languages": {
     "Dockerfile": {
       "prettier": {
-        "allowed": false
-      }
+        "allowed": false,
+      },
     },
     "Plain Text": {
       "prettier": {
-        "allowed": false
-      }
+        "allowed": false,
+      },
     },
     "Diff": {
       "prettier": {
-        "allowed": false
-      }
+        "allowed": false,
+      },
     },
     "Markdown": {
       "format_on_save": "off",
       "prettier": {
-        "allowed": false
-      }
+        "allowed": false,
+      },
     },
     "JSONC": {
       "prettier": {
-        "allowed": false
-      }
+        "allowed": false,
+      },
+    },
+    "JSON": {
+      "prettier": {
+        "allowed": false,
+      },
+    },
+    "SQL": {
+      "prettier": {
+        "allowed": false,
+      },
     },
     "Python": {
-      "language_servers": ["!pylsp", "pyright", "ruff"],
+      "language_servers": ["pyright"],
       "prettier": {
-        "allowed": false
-      }
-    }
+        "allowed": false,
+      },
+    },
+    "TypeScript": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "formatter": [
+        {
+          "code_action": "source.fixAll.eslint",
+        },
+        {
+          "external": {
+            "command": "npx",
+            "arguments": ["prettier", "--stdin-filepath", "{buffer_path}"],
+          },
+        },
+      ],
+    },
   },
   "lsp": {
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "latexindent": { "modifyLineBreaks": true },
+          "build": {
+            "onSave": true,
+            "executable": "lualatex",
+          }
+        }
+      }
+    },
     "haskell": {
       "binary": {
-        "path": "/usr/local/bin/ghc"
-      }
+        "path": "/usr/local/bin/ghc",
+      },
     },
     "jdtls": {
       "initialization_options": {
         "bundles": [],
         "settings": {
           "java": {
-            "home": "/usr/lib/jvm/java-21-openjdk",
+            "home": "/usr/lib/jvm/java-17-openjdk",
             "errors": {
               "incompleteClasspath": {
-                "severity": "warning"
-              }
+                "severity": "warning",
+              },
             },
             "configuration": {
               "updateBuildConfiguration": "interactive",
               "maven": {
-                "userSettings": null
-              }
+                "userSettings": null,
+              },
             },
             "trace": {
-              "server": "verbose"
+              "server": "verbose",
             },
             "import": {
               "gradle": {
-                "enabled": true
+                "enabled": true,
               },
               "maven": {
-                "enabled": true
+                "enabled": true,
               },
               "exclusions": [
                 "**/node_modules/**",
                 "**/.metadata/**",
                 "**/archetype-resources/**",
                 "**/META-INF/maven/**",
-                "/**/test/**"
-              ]
+                "/**/test/**",
+              ],
             },
             "jdt": {
               "ls": {
                 "lombokSupport": {
-                  "enabled": false // Set this to true to enable lombok support
-                }
-              }
+                  "enabled": false, // Set this to true to enable lombok support
+                },
+              },
             },
             "referencesCodeLens": {
-              "enabled": false
+              "enabled": false,
             },
             "signatureHelp": {
-              "enabled": false
+              "enabled": false,
             },
             "implementationsCodeLens": {
-              "enabled": false
+              "enabled": false,
             },
             "format": {
-              "enabled": true
+              "enabled": true,
             },
             "saveActions": {
-              "organizeImports": false
+              "organizeImports": false,
             },
             "contentProvider": {
-              "preferred": null
+              "preferred": null,
             },
             "autobuild": {
-              "enabled": false
+              "enabled": false,
             },
             "completion": {
               "favoriteStaticMembers": [
@@ -156,13 +194,21 @@
                 "org.junit.jupiter.api.Assertions.*",
                 "org.junit.jupiter.api.Assumptions.*",
                 "org.junit.jupiter.api.DynamicContainer.*",
-                "org.junit.jupiter.api.DynamicTest.*"
+                "org.junit.jupiter.api.DynamicTest.*",
               ],
-              "importOrder": ["java", "javax", "com", "org"]
-            }
-          }
-        }
-      }
-    }
-  }
+              "importOrder": ["java", "javax", "com", "org"],
+            },
+          },
+        },
+      },
+    },
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "diagnosticMode": "workspace",
+          "inlayHints.callArgumentNames": false,
+        },
+      },
+    },
+  },
 }
